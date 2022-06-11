@@ -1,10 +1,10 @@
 import { reactive } from "vue";
 
-const url = `${import.meta.env.VITE_BASE_URL}/starships`
+const url = `${import.meta.env.VITE_BASE_URL}/films`
 
-export const starships = reactive({
-    data: '',
-    async getStarships() {
+export const films = reactive({
+    data: [],
+    async getFilms() {
         const res = await fetch(url, {
             method: "GET",
             headers: {
@@ -15,5 +15,7 @@ export const starships = reactive({
         const data = await res.json()
 
         if(res.status === 200) this.data = data
+        
+        console.log(this.data)
     }
 })

@@ -1,12 +1,7 @@
 <script>
 export default {
     name: "Card",
-    props: {
-        title: String,
-        count: String,
-        stats: String,
-        icon: String
-    }
+    props: ['title','count','stats','icon']
 }
 </script>
 

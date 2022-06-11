@@ -1,21 +1,23 @@
 <script>
 import PageTitle from '../components/PageTitle.vue';
-import Table from '../components/Table.vue';
+import IconTableSelect from '../components/icons/IconTableSelect.vue';
+
 import { species } from '../store/species.js'
 
 export default {
     name: "SpeciesView",
     components: {
         PageTitle,
-        Table
+        IconTableSelect
     },
     data() {
         return {
             tableHead: ['Name', 'Classification', 'Eye colors', 'Hair color', 'Height', 'Created'],
-            tableBody: ['MoonLight', '9/18/20', 'Esther Howard', 'Paracetamol', '4', 'https://swapi.dev/api/people']
+            species
         }
     },
-    mouted() {
+    created() {
+        species.getSpecies()
     }
 }
 </script>
@@ -24,10 +26,27 @@ export default {
     <div class="container">
         <div>
             <PageTitle title="Species" />
-            <Table
-                :tableHead="tableHead"
-                :tableBody="tableBody"
-            />
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><div><IconTableSelect/></div></th>
+                            <th v-for="(item, i) in tableHead" :key="i">{{ item }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in species.data.results" :key="item.id">
+                            <td><IconTableSelect/></td>
+                            <td>{{ item?.name }}</td>
+                            <td>{{ item?.classification }}</td>
+                            <td>{{ item?.eye_colors }}</td>
+                            <td>{{ item?.hair_colors }}</td>
+                            <td>{{ item?.average_height }}</td>
+                            <td>{{ item?.created }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>

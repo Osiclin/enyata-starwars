@@ -1,24 +1,32 @@
 <script>
 import CardContainer from '../components/cards/CardContainer.vue';
 import PageTitle from '../components/PageTitle.vue';
-import Table from '../components/Table.vue';
-import { overview } from '../store/overview.js'
+import IconTableSelect from '../components/icons/IconTableSelect.vue';
+
+import { convertDate } from "../utils/index"
+import { films } from "../store/films"
+import { starships } from "../store/starships"
+import { people } from "../store/people"
+import { species } from "../store/species"
 
 export default {
     name: "OverviewView",
     components: {
         CardContainer,
         PageTitle,
-        Table
+        IconTableSelect
     },
     data() {
         return {
             tableHead: ['Film Title', 'Release Date', 'Director', 'Producer', 'Episode ID', 'Character'],
-            tableBody: ['MoonLight', '9/18/20', 'Esther Howard', 'Paracetamol', '4', 'https://swapi.dev/api/people']
+            films
         }
     },
-    mouted() {
-        console.log(overview.getOverview)
+    created() {
+        films.getFilms()
+        starships.getStarships()
+        people.getPeople()
+        species.getSpecies()
     }
 }
 </script>
@@ -28,10 +36,27 @@ export default {
         <div>
             <CardContainer/>
             <PageTitle title="Films" />
-            <Table
-                :tableHead="tableHead"
-                :tableBody="tableBody"
-            />
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><div><IconTableSelect/></div></th>
+                            <th v-for="(item, i) in tableHead" :key="i">{{ item }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in films.data.results" :key="item.id">
+                            <td><IconTableSelect/></td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.created }}</td>
+                            <td>{{ item.director }}</td>
+                            <td>{{ item.producer }}</td>
+                            <td>{{ item.episode_id }}</td>
+                            <td>{{ item.characters[0] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>

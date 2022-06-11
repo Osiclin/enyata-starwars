@@ -1,21 +1,23 @@
 <script>
 import PageTitle from '../components/PageTitle.vue';
-import Table from '../components/Table.vue';
+import IconTableSelect from '../components/icons/IconTableSelect.vue';
+
 import { people } from '../store/people.js'
 
 export default {
     name: "PeopleView",
     components: {
         PageTitle,
-        Table
+        IconTableSelect
     },
     data() {
         return {
             tableHead: ['Name', 'Birth Year', 'Gender', 'Hair Color', 'Height', 'Created'],
-            tableBody: ['MoonLight', '9/18/20', 'Esther Howard', 'Paracetamol', '4', 'https://swapi.dev/api/people']
+            people
         }
     },
-    mouted() {
+    created() {
+        people.getPeople()
     }
 }
 </script>
@@ -24,10 +26,27 @@ export default {
     <div class="container">
         <div>
             <PageTitle title="People" />
-            <Table
-                :tableHead="tableHead"
-                :tableBody="tableBody"
-            />
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><div><IconTableSelect/></div></th>
+                            <th v-for="(item, i) in tableHead" :key="i">{{ item }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in people.data.results" :key="item.id">
+                            <td><IconTableSelect/></td>
+                            <td>{{ item?.name }}</td>
+                            <td>{{ item?.birth_year }}</td>
+                            <td>{{ item?.gender }}</td>
+                            <td>{{ item?.hair_color }}</td>
+                            <td>{{ item?.height }}</td>
+                            <td>{{ item?.created }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>

@@ -55,6 +55,8 @@ aside{
     min-height: 100vh;
     padding: 2rem 1rem;
     background-color: var(--bg-color-blue);
+    position: sticky;
+    top: 0;
 }
 aside>div{
     display: flex;
