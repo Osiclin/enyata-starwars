@@ -21,22 +21,30 @@ export default {
             <img src="@/assets/logo.svg" alt="logo" />
         </div>
         <nav>
-            <div style="margin-bottom: 3.75rem;">
-                <IconOverview />
-                <div>Overview</div>
-            </div>
-            <div style="margin-bottom: 1rem;">
-                <IconStarships />
-                <div>Starships</div>
-            </div>
-            <div style="margin-bottom: 1rem;">
-                <IconPeople />
-                <div>People</div>
-            </div>
-            <div>
-                <IconSpecies />
-                <div>Species</div>
-            </div>
+            <router-link to="/overview">
+                <div style="margin-bottom: 3.75rem;">
+                    <IconOverview />
+                    <div>Overview</div>
+                </div>
+            </router-link>
+            <router-link to="/starships">
+                <div style="margin-bottom: 1rem;">
+                    <IconStarships />
+                    <div>Starships</div>
+                </div>
+            </router-link>
+            <router-link to="/people">
+                <div style="margin-bottom: 1rem;">
+                    <IconPeople />
+                    <div>People</div>
+                </div>
+            </router-link>
+            <router-link to="/species">
+                <div>
+                    <IconSpecies />
+                    <div>Species</div>
+                </div>
+            </router-link>
         </nav>
     </aside>
 </template>
@@ -52,18 +60,22 @@ aside>div{
     display: flex;
     justify-content: center;
 }
-nav>div{
+nav>a>div{
     padding: .5rem 2rem;
     color: var(--text-color-white);
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 1rem;
     line-height: 24px;
     border-radius: 4px;
     background-color: var(--button-color);
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
-nav>div>div{
+nav>a{
+    text-decoration: none;
+}
+nav>a>div>div{
     margin-left: 1rem;
 }
 </style>

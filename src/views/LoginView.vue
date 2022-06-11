@@ -1,16 +1,12 @@
 <script>
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
-import BlankLayout from "@/components/layouts/BlankLayout.vue";
 
 export default {
   name: "LoginView",
   components: {
     Input,
     Button
-  },
-  created() {
-    this.$emit('update:layout', BlankLayout)
   },
   data() {
     return {
@@ -96,6 +92,7 @@ main{
   width: 100%;
   max-width: 467px;
   border: 1px solid var(--border-color);
+  border-radius: 8px;
 }
 .formDiv>form{
   width: 100%;

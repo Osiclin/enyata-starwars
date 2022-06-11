@@ -1,19 +1,26 @@
 <script>
+import Sidebar from './components/Sidebar.vue';
+import Header from './components/Header.vue';
+
 export default {
   name: "App",
-  data() {
-    return {
-      layout: 'div'
-    }
-  }
+  components: { Sidebar, Header }
 }
 </script>
 
 <template>
-  <div>
-    <component :is="layout">
-      <router-view :layout.sync="layout" />
-    </component>
+  <div class="container">
+    <div v-if="this.$route.name !== 'login'">
+      <Sidebar/>
+    </div>
+    <div>
+      <div v-if="this.$route.name !== 'login'">
+        <Header/>
+      </div>
+      <div class="children">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,5 +30,11 @@ export default {
 #app {
   font-weight: normal;
   min-height: 100vh;
+}
+.container{
+  display: flex;
+}
+.container>div:last-child{
+  flex: 1;
 }
 </style>
