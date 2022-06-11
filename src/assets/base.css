@@ -1,0 +1,41 @@
+:root {
+  --text-color-white: #FFFFFF;
+  --text-color-grey: #B0B9C8;
+  --text-color-lightgrey: #A4A7B7;
+  --text-color-darkgrey: #737373;
+  --text-color-dark: #434854;
+  --text-color-blue: #0A74DC;
+
+  --bg-color-blue: #031434;
+  --bg-color-white: #FFFFFF;
+
+  --border-color: #A4A7B74D;
+  --border-color-blue: #0A74DC;
+
+  --input-border: #A4A7B7;
+  --input-border-blue: #0A74DC;
+
+  --button-color: #0A74DC;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
