@@ -4,7 +4,10 @@ const url = `${import.meta.env.VITE_BASE_URL}/films`
 
 export const films = reactive({
     data: [],
+    loading: true,
     async getFilms() {
+        this.loading = true
+
         const res = await fetch(url, {
             method: "GET",
             headers: {
@@ -15,7 +18,7 @@ export const films = reactive({
         const data = await res.json()
 
         if(res.status === 200) this.data = data
-        
-        console.log(this.data)
-    }
+
+        this.loading = false
+    },
 })

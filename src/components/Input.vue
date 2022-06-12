@@ -1,13 +1,7 @@
 <script>
 export default {
     name: "Input",
-    props: {
-        label: String,
-        type: String,
-        name: String,
-        modelValue: String,
-        id: String
-    }
+    props: ['label', 'type', 'name', 'modelValue', 'id', 'required']
 }
 </script>
 
@@ -18,6 +12,7 @@ export default {
             :id="id"
             :type="type"
             :name="name"
+            :required="required"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
         />

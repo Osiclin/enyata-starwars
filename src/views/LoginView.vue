@@ -16,7 +16,11 @@ export default {
   },
   methods: {
     async submit() {
+      const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/
+
       if (!this.email || !this.password) return
+      if (this.password.length < 8) return
+      if (!regex.test(this.password)) return // check password is aplanumeric
       
       this.$router.push('/overview')
     }
@@ -39,6 +43,7 @@ export default {
             type="email"
             name="email"
             id="email"
+            :required="true"
             v-model="email"
           />
           <Input
@@ -46,6 +51,7 @@ export default {
             type="password"
             name="password"
             id="password"
+            :required="true"
             v-model="password"
           />
           <div style="margin-bottom: 1.5rem">

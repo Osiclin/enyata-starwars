@@ -2,20 +2,33 @@
 import IconBell from "./icons/IconBell.vue"
 import IconEllipses from "./icons/IconEllipses.vue"
 import IconProfile from "./icons/IconProfile.vue"
+import IconArrowBack from "./icons/IconArrowBack.vue"
 
 export default {
     name: "Header",
     components: {
-    IconBell,
-    IconEllipses,
-    IconProfile
-}
+        IconBell,
+        IconEllipses,
+        IconProfile,
+        IconArrowBack
+    },
+    computed: {
+        displayBackIcon() {
+            return this.$route.name.match(/details/gi)
+        }
+    }
 }
 </script>
 
 <template>
-    <header>
-        <div></div>
+    <header :style="{ justifyContent: displayBackIcon ? 'space-between' : 'end' }">
+        <div 
+            @click="this.$router.go(-1)" 
+            v-if="displayBackIcon"
+        >
+            <IconArrowBack/>
+            <p style="margin-left: .5rem">Back</p>
+        </div>
         <div>
             <IconBell />
             <div class="divider"></div>
@@ -32,8 +45,17 @@ export default {
 header{
     padding: 1rem;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     box-shadow: 0px 2px 6px rgba(229, 229, 229, 0.3);
+}
+header>div:first-child{
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+    color: #A4A7B7;
+    cursor: pointer;
 }
 header>div:last-child{
     display: flex;

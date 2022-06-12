@@ -22,25 +22,44 @@ export default {
         </div>
         <nav>
             <router-link to="/overview">
-                <div style="margin-bottom: 3.75rem;">
+                <div 
+                    :style="{ 
+                        marginBottom: '3.75rem', 
+                        backgroundColor: this.$route.name.match(/overview/gi) ? '#0A74DC' : '' 
+                    }"
+                >
                     <IconOverview />
                     <div>Overview</div>
                 </div>
             </router-link>
             <router-link to="/starships">
-                <div style="margin-bottom: 1rem;">
+                <div
+                    :style="{ 
+                        marginBottom: '1rem', 
+                        backgroundColor: this.$route.name.match(/starships/gi) ? '#0A74DC' : '' 
+                    }"
+                >
                     <IconStarships />
                     <div>Starships</div>
                 </div>
             </router-link>
             <router-link to="/people">
-                <div style="margin-bottom: 1rem;">
+                <div
+                    :style="{ 
+                        marginBottom: '1rem', 
+                        backgroundColor: this.$route.name.match(/people/gi) ? '#0A74DC' : '' 
+                    }"
+                >
                     <IconPeople />
                     <div>People</div>
                 </div>
             </router-link>
             <router-link to="/species">
-                <div>
+                <div
+                    :style="{
+                        backgroundColor: this.$route.name.match(/species/gi) ? '#0A74DC' : '' 
+                    }"
+                >
                     <IconSpecies />
                     <div>Species</div>
                 </div>
@@ -69,7 +88,7 @@ nav>a>div{
     font-size: 1rem;
     line-height: 24px;
     border-radius: 4px;
-    background-color: var(--button-color);
+    /* background-color: var(--button-color); */
     display: flex;
     align-items: center;
     cursor: pointer;

@@ -62,3 +62,6 @@ td{
   font-size: 1rem;
   line-height: 24px;
 }
+tbody>tr{
+  cursor: pointer;
+}
