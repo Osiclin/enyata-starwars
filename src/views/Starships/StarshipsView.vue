@@ -17,7 +17,7 @@ export default {
         }
     },
     created() {
-        starships.getStarships()
+        if (!starships.data.results) starships.getStarships()
     }
 }
 </script>
@@ -26,7 +26,7 @@ export default {
     <div class="container">
         <div>
             <PageTitle title="Starships" />
-            <div>
+            <div class="tableContainer">
                 <table>
                     <thead>
                         <tr>
@@ -47,7 +47,7 @@ export default {
                             <td>{{ item?.model }}</td>
                             <td>{{ item?.starship_class }}</td>
                             <td>{{ item?.passengers }}</td>
-                            <td>{{ item?.length }}</td>
+                            <td>{{ item?.length }} Metres</td>
                             <td>{{ item?.films[0] }}</td>
                         </tr>
                     </tbody>

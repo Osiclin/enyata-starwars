@@ -21,7 +21,7 @@ export default {
         convertDate
     },
     created() {
-        people.getPeople()
+        if (!people.data.results) people.getPeople()
     }
 }
 </script>
@@ -30,7 +30,7 @@ export default {
     <div class="container">
         <div>
             <PageTitle title="People" />
-            <div>
+            <div class="tableContainer">
                 <table>
                     <thead>
                         <tr>

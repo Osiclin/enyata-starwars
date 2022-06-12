@@ -27,24 +27,28 @@ export default {
          title="Films"
          stats="20 more than yesterday"
          :count="films.data.count"
+         :loading="films.loading"
          icon="#A9FFE0"
         />
         <Card 
          title="Starships"
          stats="20 more than yesterday"
          :count="starships.data.count"
+         :loading="starships.loading"
          icon="#A9C1FF"
         />
         <Card 
          title="People"
          stats="20 more than yesterday"
          :count="people.data.count"
+         :loading="people.loading"
          icon="#FFA9EC"
         />
         <Card 
          title="Species"
          stats="20 more than yesterday"
          :count="species.data.count"
+         :loading="species.loading"
          icon="#FDFFA9"
         />
     </div>

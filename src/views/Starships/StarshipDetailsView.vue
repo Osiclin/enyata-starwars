@@ -66,7 +66,7 @@ export default {
     font-size: 3rem;
     line-height: 3rem;
     color: #000000;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1rem;
 }
 .details>p{
     font-weight: 500;

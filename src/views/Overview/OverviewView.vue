@@ -26,10 +26,10 @@ export default {
         convertDate
     },
     created() {
-        films.getFilms()
-        starships.getStarships()
-        people.getPeople()
-        species.getSpecies()
+        if (!films.data.results) films.getFilms()
+        if (!starships.data.results) starships.getStarships()
+        if (!people.data.results) people.getPeople()
+        if (!species.data.results) species.getSpecies()
     }
 }
 </script>
@@ -39,7 +39,7 @@ export default {
         <div>
             <CardContainer/>
             <PageTitle title="Films" />
-            <div>
+            <div class="tableContainer">
                 <table>
                     <thead>
                         <tr>

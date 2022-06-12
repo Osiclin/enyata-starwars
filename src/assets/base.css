@@ -40,14 +40,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.tableContainer{
+  background: #FFFFFF;
+  border: 1px solid rgba(164, 167, 183, 0.4);
+  border-radius: 4px;
+  min-height: 400px;
+  overflow-x: auto;
+}
 table{
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
 }
 tr>th>div{
   margin-right: 1rem; 
   display: flex; 
   align-items: center;
+}
+tr>th:first-child,
+tr>td:first-child{
+  width: 50px;
 }
 th, td{
   text-align: left;
@@ -55,6 +68,8 @@ th, td{
 }
 th{
   color: #A4A7B7;
+  white-space: nowrap;
+  padding-right: 1rem;
 }
 td{
   font-style: normal;

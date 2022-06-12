@@ -43,7 +43,7 @@ export default {
 
 <style>
 header{
-    padding: 1rem;
+    padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 2px 6px rgba(229, 229, 229, 0.3);

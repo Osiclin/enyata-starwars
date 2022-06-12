@@ -1,7 +1,9 @@
 <script>
+import Spinner from '../Spinner.vue';
 export default {
     name: "Card",
-    props: ['title','count','stats','icon']
+    props: ["title", "count", "stats", "icon", "loading"],
+    components: { Spinner }
 }
 </script>
 
@@ -12,7 +14,8 @@ export default {
             <div class="icon" :style="{backgroundColor: icon}"></div>
         </div>
         <div>
-            <div class="count">{{ count }}</div>
+            <div v-if="loading"><Spinner/></div>
+            <div v-else class="count">{{ count }}</div>
             <p class="stats">{{ stats }}</p>
         </div>
     </div>

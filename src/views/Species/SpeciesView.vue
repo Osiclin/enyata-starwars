@@ -21,7 +21,7 @@ export default {
         convertDate
     },
     created() {
-        species.getSpecies()
+        if (!species.data.results) species.getSpecies()
     }
 }
 </script>
@@ -30,7 +30,7 @@ export default {
     <div class="container">
         <div>
             <PageTitle title="Species" />
-            <div>
+            <div class="tableContainer">
                 <table>
                     <thead>
                         <tr>
