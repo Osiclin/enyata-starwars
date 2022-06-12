@@ -1,14 +1,10 @@
 # enyata-starwars
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is built with Vuejs
 
-## Recommended IDE Setup
+## NOTE
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+A .env file is used to store the api url. Usually this file shouldn't be pushed to github but for the sake of this task i pushed it for easy access of the task. 
 
 ## Project Setup
 
@@ -27,3 +23,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Code Structure
+
+A store folder which contains a reactive state lives inside src folder. 
+
+A utils folder containing function lives inside src folder.
