@@ -36,7 +36,7 @@ export default {
         <div v-if="loading">Loading...</div>
         <div v-else>
             <div class="imgDiv">
-                <img src="/public/images/species.svg" width="318" height="450" :alt="data?.name" />
+                <img src="/images/species.svg" width="318" height="450" :alt="data?.name" />
             </div>
             <div class="details">
                 <h1>{{ data?.name }}</h1>
