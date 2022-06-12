@@ -13,11 +13,11 @@ export default {
 
 <template>
   <div class="container">
-    <div v-if="this.$route.name !== 'login'">
+    <div v-show="this.$route.name !== 'login'">
       <Sidebar/>
     </div>
     <div>
-      <div v-if="this.$route.name !== 'login'">
+      <div v-show="this.$route.name !== 'login'">
         <Header/>
       </div>
       <div class="children">
@@ -39,5 +39,6 @@ export default {
 }
 .container>div:last-child{
   flex: 1;
+  overflow-x: hidden;
 }
 </style>

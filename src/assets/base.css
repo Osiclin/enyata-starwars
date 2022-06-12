@@ -48,10 +48,11 @@ body {
   overflow-x: auto;
 }
 table{
-  table-layout: fixed;
+  border-collapse: collapse;
+  table-layout: auto;
   width: 100%;
-  overflow-x: auto;
-  padding: 1rem;
+  min-width: 1000px;
+  overflow-x: hidden;
 }
 tr>th>div{
   margin-right: 1rem; 
@@ -60,11 +61,14 @@ tr>th>div{
 }
 tr>th:first-child,
 tr>td:first-child{
-  width: 50px;
+  width: 62px;
+}
+tbody>tr:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.118);
 }
 th, td{
   text-align: left;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 th{
   color: #A4A7B7;

@@ -58,6 +58,6 @@ export default {
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
-    margin: -1rem 0 4.688rem -1rem;
+    margin: -1rem 0 4.688rem -.8rem;
 }
 </style>
