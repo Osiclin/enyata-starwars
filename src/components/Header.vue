@@ -4,6 +4,8 @@ import IconEllipses from "./icons/IconEllipses.vue"
 import IconProfile from "./icons/IconProfile.vue"
 import IconArrowBack from "./icons/IconArrowBack.vue"
 
+import { sidebar } from "../store/sidebar"
+
 export default {
     name: "Header",
     components: {
@@ -16,6 +18,11 @@ export default {
         displayBackIcon() {
             return this.$route.name && this.$route.name.match(/details/gi)
         }
+    },
+    data() {
+        return {
+            sidebar
+        }
     }
 }
 </script>
@@ -24,7 +31,7 @@ export default {
     <header :style="{ justifyContent: displayBackIcon ? 'space-between' : 'end' }">
         <div 
             @click="this.$router.go(-1)" 
-            v-if="displayBackIcon"
+            v-show="displayBackIcon"
         >
             <IconArrowBack/>
             <p style="margin-left: .5rem">Back</p>
@@ -37,12 +44,15 @@ export default {
                 <div>John Doe</div>
             </div>
             <IconEllipses />
+            <div v-if="!sidebar.menu" class="hamburger" @click="sidebar.toggleSidebar()"> &#9776;</div>
+            <div v-if="sidebar.menu" class="hamburger" @click="sidebar.toggleSidebar()">X</div>
         </div>
     </header>
 </template>
 
 <style>
 header{
+    width: 100%;
     padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
@@ -77,5 +87,21 @@ header>div:last-child{
     width: 2px;
     margin: 0 1.4rem;
     background-color: #E5E5E5;
+}
+.hamburger{
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    header {
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 800px) {
+    .hamburger{
+        display: block;
+        margin-left: 1rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
 }
 </style>

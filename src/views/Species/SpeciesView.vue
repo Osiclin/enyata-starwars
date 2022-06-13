@@ -65,4 +65,9 @@ export default {
 .container{
     padding: 3rem;
 }
+@media screen and (max-width: 800px) {
+    .container{
+        padding: 3rem 1rem;
+    }
+}
 </style>

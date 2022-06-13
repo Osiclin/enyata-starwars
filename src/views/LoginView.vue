@@ -18,11 +18,12 @@ export default {
   },
   methods: {
     async submit() {
-      const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/
+      const regexPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/
+      const regexEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
-      if (!this.email || !this.password) return this.notification = 'Email and Password are required' // check if email and password exist
-      // if (this.password.length < 8) return this.notification = 'Password must contain more than 7 character'
-      if (!regex.test(this.password)) return this.notification = 'Password must contain letters and numbers character' // check password contains letters and numbers
+      if (!this.email && !this.password) return this.notification = 'Email and Password are required' // check if email and password exist
+      if (!regexEmail.test(this.email)) return this.notification = 'Please enter a valid email' // check email for valid email
+      if (!regexPassword.test(this.password)) return this.notification = 'Password must contain letters and numbers character' // check password contains letters and numbers
       
       this.$router.push('/overview')
     }
@@ -30,7 +31,7 @@ export default {
   updated() {
     clearTimeout(this.timer)
     this.timer = setTimeout(() => {
-        this.notification = '' 
+      this.notification = '' 
     }, 4000)
   }
 }
@@ -49,10 +50,9 @@ export default {
           <p class="notification">{{ notification }}</p>
           <Input
             label="Email Address"
-            type="email"
+            type="text"
             name="email"
             id="email"
-            :required="true"
             v-model="email"
           />
           <Input
@@ -60,7 +60,6 @@ export default {
             type="password"
             name="password"
             id="password"
-            :required="true"
             v-model="password"
           />
           <div style="margin-bottom: 1.5rem">

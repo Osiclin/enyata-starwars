@@ -75,4 +75,23 @@ export default {
     line-height: 24px;
     text-transform: capitalize;
 }
+
+@media screen and (max-width: 1000px) {
+    .container{
+        padding: 3rem 1rem;
+    }
+    .container>div{
+        flex-direction: column;
+    }
+    .details>h1{
+        font-size: 2.5rem;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    .imgDiv{
+        margin-right: 0;
+    }
+}
 </style>

@@ -36,7 +36,7 @@ export default {
         <div v-if="loading">Loading...</div>
         <div v-else>
             <div class="imgDiv">
-                <img src="/public/images/people.svg" width="318" height="450" :alt="data?.name" />
+                <img src="/images/people.svg" width="318" height="450" :alt="data?.name" />
             </div>
             <div class="details">
                 <h1>{{ data?.name }}</h1>
@@ -74,5 +74,23 @@ export default {
     font-size: 1rem;
     line-height: 24px;
     text-transform: capitalize;
+}
+@media screen and (max-width: 1000px) {
+    .container{
+        padding: 3rem 1rem;
+    }
+    .container>div{
+        flex-direction: column;
+    }
+    .details>h1{
+        font-size: 2.5rem;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    .imgDiv{
+        margin-right: 0;
+    }
 }
 </style>
