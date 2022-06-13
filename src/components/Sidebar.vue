@@ -73,7 +73,7 @@ export default {
             </router-link>
         </nav>
     </aside>
-    <aside class="mobile" :style="{ display: sidebar.menu ? 'block' : 'none'}">
+    <aside class="mobile" :style="{ left: sidebar.menu ? '0' : '-272px' }">
         <div style="margin-bottom: 1.875rem;">
             <img src="@/assets/logo.svg" alt="logo" />
         </div>
@@ -145,7 +145,6 @@ nav>a>div{
     font-size: 1rem;
     line-height: 24px;
     border-radius: 4px;
-    /* background-color: var(--button-color); */
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -165,13 +164,16 @@ nav>a>div>div{
         display: none;
     }
     .mobile{
+        display: block;
         width: 272px;
         min-height: 100vh;
         padding: 2rem 1rem;
         background-color: var(--bg-color-blue);
         position: fixed;
         top: 0;
+        left: -272px;
         z-index: 1;
+        transition: 1s;
     }
 }
 </style>
