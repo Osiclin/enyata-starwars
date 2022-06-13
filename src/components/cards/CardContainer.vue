@@ -1,5 +1,6 @@
 <script>
 import Card from "./Card.vue"
+
 import { films } from "../../store/films"
 import { starships } from "../../store/starships"
 import { people } from "../../store/people"
@@ -55,9 +56,31 @@ export default {
 </template>
 
 <style>
-.cardContainer{
+/* .cardContainer{
     display: flex;
     flex-wrap: wrap;
     margin: -1rem 0 4.688rem -.8rem;
+} */
+.cardContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem .2rem;
+    flex-wrap: wrap;
+    margin: 0 0 4.688rem;
+}
+@media screen and (max-width: 1120px) {
+    .cardContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 350px) {
+    .cardContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+    }
 }
 </style>
