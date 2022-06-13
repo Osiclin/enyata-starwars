@@ -1,4 +1,4 @@
-# enyata-starwars
+# enyata-task
 
 This project is built with Vuejs
 
