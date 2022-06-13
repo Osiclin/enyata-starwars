@@ -61,10 +61,10 @@ tr>th>div{
 }
 tr>th:first-child,
 tr>td:first-child{
-  width: 62px;
+  width: 0px;
 }
 tbody>tr:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.118);
+  background-color: rgba(128, 128, 128, 0.1);
 }
 th, td{
   text-align: left;

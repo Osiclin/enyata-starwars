@@ -49,7 +49,6 @@ export default {
     font-style: normal;
     font-weight: 400;
     font-size: .563rem;
-    line-height: 24px;
     color: #00992B;
 }
 .icon{

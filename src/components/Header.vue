@@ -14,7 +14,7 @@ export default {
     },
     computed: {
         displayBackIcon() {
-            return this.$route.name.match(/details/gi)
+            return this.$route.name && this.$route.name.match(/details/gi)
         }
     }
 }

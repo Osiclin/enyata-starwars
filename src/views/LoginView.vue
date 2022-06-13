@@ -7,23 +7,31 @@ export default {
   components: {
     Input,
     Button
-  },
+},
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      notification: '',
+      timer: null
     }
   },
   methods: {
     async submit() {
       const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$/
 
-      if (!this.email || !this.password) return
-      if (this.password.length < 8) return
-      if (!regex.test(this.password)) return // check password is aplanumeric
+      if (!this.email || !this.password) return this.notification = 'Email and Password are required' // check if email and password exist
+      // if (this.password.length < 8) return this.notification = 'Password must contain more than 7 character'
+      if (!regex.test(this.password)) return this.notification = 'Password must contain letters and numbers character' // check password contains letters and numbers
       
       this.$router.push('/overview')
     }
+  },
+  updated() {
+    clearTimeout(this.timer)
+    this.timer = setTimeout(() => {
+        this.notification = '' 
+    }, 4000)
   }
 }
 </script>
@@ -38,6 +46,7 @@ export default {
         <form @submit.prevent="submit">
           <h1>Login</h1>
           <p class="note">Kindly enter your details to log in</p>
+          <p class="notification">{{ notification }}</p>
           <Input
             label="Email Address"
             type="email"
@@ -86,6 +95,11 @@ main{
   justify-content: center;
   background-color: var(--bg-color-blue);
 }
+.notification{
+  margin-bottom: 1rem;
+  font-size: .8rem;
+  color: red;
+}
 .right{
   flex: 1;
   display: flex;
@@ -117,7 +131,7 @@ main{
   font-weight: 400;
   font-size: 1rem;
   line-height: 24px;
-  margin-bottom: 3.875rem;
+  margin-bottom: 3.785rem;
   color: var(--text-color-darkgrey);
 }
 .forgot{

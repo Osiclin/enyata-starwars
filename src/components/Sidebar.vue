@@ -25,7 +25,7 @@ export default {
                 <div 
                     :style="{ 
                         marginBottom: '3.75rem', 
-                        backgroundColor: this.$route.name.match(/overview/gi) ? '#0A74DC' : '' 
+                        backgroundColor: this.$route.name && this.$route.name.match(/overview/gi) ? '#0A74DC' : '' 
                     }"
                 >
                     <IconOverview />
@@ -36,7 +36,7 @@ export default {
                 <div
                     :style="{ 
                         marginBottom: '1rem', 
-                        backgroundColor: this.$route.name.match(/starships/gi) ? '#0A74DC' : '' 
+                        backgroundColor: this.$route.name && this.$route.name.match(/starships/gi) ? '#0A74DC' : '' 
                     }"
                 >
                     <IconStarships />
@@ -47,7 +47,7 @@ export default {
                 <div
                     :style="{ 
                         marginBottom: '1rem', 
-                        backgroundColor: this.$route.name.match(/people/gi) ? '#0A74DC' : '' 
+                        backgroundColor: this.$route.name && this.$route.name.match(/people/gi) ? '#0A74DC' : '' 
                     }"
                 >
                     <IconPeople />
@@ -57,7 +57,7 @@ export default {
             <router-link to="/species">
                 <div
                     :style="{
-                        backgroundColor: this.$route.name.match(/species/gi) ? '#0A74DC' : '' 
+                        backgroundColor: this.$route.name && this.$route.name.match(/species/gi) ? '#0A74DC' : '' 
                     }"
                 >
                     <IconSpecies />
